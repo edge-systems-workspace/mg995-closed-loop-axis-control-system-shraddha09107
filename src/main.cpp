@@ -7,5 +7,8 @@
  * This program attaches a servo motor to pin 9 and continuously
  * rotates it forward and backward in fixed step increments.
  */
-
+#include <Arduino.h>
+#include <Servo.h>
+Servo myServo;  // create servo object to control a servo
+#define SERVO_PIN 9
 
