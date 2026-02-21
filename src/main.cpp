@@ -11,4 +11,9 @@
 #include <Servo.h>
 Servo myServo;  // create servo object to control a servo
 #define SERVO_PIN 9
+void setup() {
+ // write your initialization code here
+ myServo.attach(9);  // attaches the servo on pin 9 to the servo object
+ Serial.begin(9600);
+}
 
