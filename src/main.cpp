@@ -1,9 +1,37 @@
+/**
+* @file main.cpp
+ * @author Shraddha Singh
+ * @date 21 February 2026
+ * @brief Controls MG995 servo motor by rotating it between 0° and 180°.
+ *
+ * This program attaches a servo motor to pin 9 and continuously
+ * rotates it forward and backward in fixed step increments.
+ */
 #include <Arduino.h>
+#include <Servo.h>
+Servo myServo;  // create servo object to control a servo
+#define SERVO_PIN 9
 void setup() {
-// write your initialization code here
+ // write your initialization code here
+ myServo.attach(9);  // attaches the servo on pin 9 to the servo object
+ Serial.begin(9600);
 }
-
-
 void loop() {
-// write your code here
+ // write your code here
+ //write a loop code
+ for (int pos = 0; pos <= 180; pos += 40) { // goes from 0 degrees to 180 degrees
+  // in steps of 1 degree
+  myServo.write(pos);              // tell servo to go to position in variable 'pos'
+  delay(15);                       // waits 15ms for the servo to reach the position
+ }
+ for (int pos = 180; pos >= 0; pos -= 90)
+ {
+  // goes from 180 degrees to 0 degrees
+  myServo.write(pos);              //
+  delay(15);                       // waits 15ms for the servo to reach the position
+ }
+
+
+
 }
+
